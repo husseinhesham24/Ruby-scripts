@@ -21,8 +21,7 @@ end
 
 def get_submmissions
   offset = 0
-  # flag = true
-  # cnt = 1
+  
   while(true)
     url = "https://leetcode.com/api/submissions/?offset=#{offset}&limit=20"
     headers = {
