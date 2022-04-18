@@ -21,7 +21,8 @@ end
 
 def get_submmissions
   offset = 0
-  
+  problems = []
+
   while(true)
     url = "https://leetcode.com/api/submissions/?offset=#{offset}&limit=20"
     headers = {
@@ -41,7 +42,8 @@ def get_submmissions
 
     puts "Creating files ...."
     data["submissions_dump"].each do |p|
-      if (p["status_display"]=="Accepted")
+      if (!problems.any?{|h| h[:title]==p['title']} && p["status_display"]=="Accepted")
+        problems.append({title: p['title'], code: p['code']})
         create_file("/home/husssein/personal/problem-solving", "Leetcode/#{p["title"]}", "cpp")
         File.write("Leetcode/#{p["title"]}.cpp", p["code"])
       end 
