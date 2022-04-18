@@ -43,13 +43,9 @@ def get_submmissions
     puts "Creating files ...."
     data["submissions_dump"].each do |p|
       if (p["status_display"]=="Accepted")
-        # @problems.append({title:p["title"], code: p["code"]}) 
         create_file("/home/husssein/personal/problem-solving", "Leetcode/#{p["title"]}", "cpp")
         File.write("Leetcode/#{p["title"]}.cpp", p["code"])
       end 
-      
-      # puts "problem#{cnt}: #{p["title"]}"
-      # cnt+=1
     end
 
     if(!data["has_next"])
@@ -63,13 +59,11 @@ end
 
 
 
-# cmd = "sudo apt update && sudo apt upgrade"
-
 puts "clone repo ...."
 Dir.chdir("/home/husssein/personal")
 g = Git.clone("https://github.com/husseinhesham24/problem-solving.git", "problem-solving")
 
-# puts "lol"
+
 get_submmissions
 
 g.add 
