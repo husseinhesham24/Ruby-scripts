@@ -5,4 +5,5 @@ I created some scripts which automate some boring tasks which i faced everyday
 
 | Name                     | Description                                                     | Tags                         |
 |:------------------------ |:--------------------------------------------------------------- | ----------------------------:|
-|[leethub.rb](./leethub.rb)|download your leetcode solutions and update your problems repo   |`leetcode` `github`           |
+|[leethub.rb](./leethub.rb)|Download your leetcode solutions and update your problems repo <br> Note: you have to change pahts and cookie to yours in the script|`leetcode` `github`           |
+                               
