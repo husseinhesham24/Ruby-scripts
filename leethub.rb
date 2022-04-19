@@ -5,11 +5,22 @@ require 'httparty'
 require 'json'
 require 'git'
 
-@path = "/home/husssein/personal"
-@repo_path = "/home/husssein/personal/problem-solving"
-@sub_repo_path = "Leetcode"
-@repo_name = "problem-solving"
-@repo_url = "https://github.com/husseinhesham24/problem-solving.git"
+#please change the paths to yours
+
+#folder which download inside your repo 
+@path = "/folder/folder/folder" 
+
+#your repo folder path
+@repo_path = "/folder/folder/folder/<repo-name>"
+
+#folder name which download inside your solution files 
+@sub_repo_path = "<folder-name>" 
+
+#your repo name
+@repo_name = "repo-name" 
+
+#repo link to clone it
+@repo_url = "<repo-link>" 
 
 
 def create_file(path, path2, extension)
@@ -33,7 +44,7 @@ def get_submmissions
   while(true)
     url = "https://leetcode.com/api/submissions/?offset=#{offset}&limit=20"
     headers = {
-      cookie: 'NEW_PROBLEMLIST_PAGE=1; _ga=GA1.2.1508281977.1650292683; _gid=GA1.2.961240261.1650292683; c_a_u="c2l2eA==:1ngSWc:sJr67v_0SqRSUMoTFt_gVHK2i2s"; csrftoken=0obm3DiT2AEz5ZmSRRfr2u7PDww5UwsbCsXYT0BVaYs9qybKtz4XBdQUqvKaarcd; messages="d8007e75663a05e3cdaed889c404012673a1212b$[[\"__json_message\"\0540\05425\054\"Successfully signed in as sivx.\"]\054[\"__json_message\"\0540\05425\054\"You have signed out.\"]\054[\"__json_message\"\0540\05425\054\"Successfully signed in as sivx.\"]\054[\"__json_message\"\0540\05425\054\"You have signed out.\"]\054[\"__json_message\"\0540\05425\054\"Successfully signed in as sivx.\"]\054[\"__json_message\"\0540\05425\054\"You have signed out.\"]\054[\"__json_message\"\0540\05425\054\"Successfully signed in as sivx.\"]\054[\"__json_message\"\0540\05425\054\"You have signed out.\"]\054[\"__json_message\"\0540\05425\054\"Successfully signed in as sivx.\"]\054[\"__json_message\"\0540\05425\054\"You have signed out.\"]\054[\"__json_message\"\0540\05425\054\"Successfully signed in as sivx.\"]\054[\"__json_message\"\0540\05425\054\"You have signed out.\"]\054[\"__json_message\"\0540\05425\054\"Successfully signed in as sivx.\"]\054[\"__json_message\"\0540\05425\054\"You have signed out.\"]\054[\"__json_message\"\0540\05425\054\"Successfully signed in as sivx.\"]\054[\"__json_message\"\0540\05425\054\"You have signed out.\"]\054[\"__json_message\"\0540\05425\054\"Successfully signed in as sivx.\"]]"; LEETCODE_SESSION=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfYXV0aF91c2VyX2lkIjoiMTkwNzE5MiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImFsbGF1dGguYWNjb3VudC5hdXRoX2JhY2tlbmRzLkF1dGhlbnRpY2F0aW9uQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6ImNmODYwM2I4MDQ2MWNjOTQwNzMzNTYyMjEzNzYwOGYzODE1OTkxMjIiLCJpZCI6MTkwNzE5MiwiZW1haWwiOiJodXNzZWluaGVzaGFtMjRAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzaXZ4IiwidXNlcl9zbHVnIjoic2l2eCIsImF2YXRhciI6Imh0dHBzOi8vYXNzZXRzLmxlZXRjb2RlLmNvbS91c2Vycy9zaXZ4L2F2YXRhcl8xNjIzNzAyNTc5LnBuZyIsInJlZnJlc2hlZF9hdCI6MTY1MDMxNDE4MCwiaXAiOiIxNTYuMjE4LjExOS4yMzgiLCJpZGVudGl0eSI6IjE5MjI0MWQ1ZjE0N2JkYzc2N2ViMzYzZjExMTU5MTAzIiwic2Vzc2lvbl9pZCI6MjA2MTQzODYsIl9zZXNzaW9uX2V4cGlyeSI6MTIwOTYwMH0.x8TAsg7ukf0DwARRayqYEmLTxk0b3Gf0lkx1vjpxoK8'
+      cookie: 'token'
     }
 
     response = HTTParty.get(url, headers: headers)
