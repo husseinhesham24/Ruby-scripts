@@ -44,7 +44,7 @@ def get_submmissions
   while(true)
     url = "https://leetcode.com/api/submissions/?offset=#{offset}&limit=20"
     headers = {
-      cookie: 'your-token'
+      cookie: 'your-leetcode-token'
     }
 
     response = HTTParty.get(url, headers: headers)
