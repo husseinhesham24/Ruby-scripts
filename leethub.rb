@@ -5,6 +5,13 @@ require 'httparty'
 require 'json'
 require 'git'
 
+@path = "/home/husssein/personal"
+@repo_path = "/home/husssein/personal/problem-solving"
+@sub_repo_path = "Leetcode"
+@repo_name = "problem-solving"
+@repo_url = "https://github.com/husseinhesham24/problem-solving.git"
+
+
 def create_file(path, path2, extension)
   
   Dir.chdir(path)
@@ -44,8 +51,8 @@ def get_submmissions
     data["submissions_dump"].each do |p|
       if (!problems.any?{|h| h[:title]==p['title']} && p["status_display"]=="Accepted")
         problems.append({title: p['title'], code: p['code']})
-        create_file("/home/husssein/personal/problem-solving", "Leetcode/#{p["title"]}", "cpp")
-        File.write("Leetcode/#{p["title"]}.cpp", p["code"])
+        create_file(@repo_path, "#{@sub_repo_path}/#{p["title"]}", "cpp")
+        File.write("#{@sub_repo_path}/#{p["title"]}.cpp", p["code"])
       end 
     end
 
@@ -61,14 +68,19 @@ end
 
 
 puts "clone repo ...."
-Dir.chdir("/home/husssein/personal")
-g = Git.clone("https://github.com/husseinhesham24/problem-solving.git", "problem-solving")
+Dir.chdir(@path)
+
+if Dir.exist?(@repo_name)
+  FileUtils.rm_rf(@repo_path)
+end
+
+g = Git.clone(@repo_url, @repo_name)
 
 
 get_submmissions
 
-g.add 
+g.add
 g.commit_all('leethub script')
 g.push
 
-FileUtils.rm_rf("/home/husssein/personal/problem-solving")
+FileUtils.rm_rf(@repo_path)
