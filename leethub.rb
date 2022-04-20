@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
-require 'fileutils'
-require 'httparty'
-require 'json'
-require 'git'
+require 'fileutils' #gem install fileutils
+require 'httparty' #gem install httparty
+require 'json' #gem install json
+require 'git' #gem install git
 
 #please change the paths to yours
 
